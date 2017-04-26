@@ -1,0 +1,14 @@
+ for(i=0;i<graph->V;i++){
+     head=graph->array[i].head;
+    if(head->next!=NULL){
+      curr=head->next;
+      while(curr!=NULL){
+	prvnode=curr;
+	curr=curr->next;
+	free(prvnode);
+      }
+    }
+    free(graph->array[i].head);
+  }
+  free(graph->array);
+  free(graph);

@@ -1,0 +1,126 @@
+==25311== Memcheck, a memory error detector
+==25311== Copyright (C) 2002-2012, and GNU GPL'd, by Julian Seward et al.
+==25311== Using Valgrind-3.8.1 and LibVEX; rerun with -h for copyright info
+==25311== Command: ./unhuff text.txt.huff
+==25311== Parent PID: 8547
+==25311== 
+--25311-- 
+--25311-- Valgrind options:
+--25311--    --tool=memcheck
+--25311--    --leak-check=full
+--25311--    --verbose
+--25311--    --log-file=memcheck.log
+--25311-- Contents of /proc/version:
+--25311--   Linux version 2.6.32-573.7.1.el6.x86_64 (mockbuild@x86-031.build.eng.bos.redhat.com) (gcc version 4.4.7 20120313 (Red Hat 4.4.7-16) (GCC) ) #1 SMP Thu Sep 10 13:42:16 EDT 2015
+--25311-- Arch and hwcaps: AMD64, amd64-sse3-cx16-avx
+--25311-- Page sizes: currently 4096, max supported 4096
+--25311-- Valgrind library directory: /usr/lib64/valgrind
+--25311-- Reading syms from /home/shay/b/xiao81/ECE368/ece368-proj2/unhuff
+--25311-- Reading syms from /usr/lib64/valgrind/memcheck-amd64-linux
+--25311--    object doesn't have a dynamic symbol table
+--25311-- Reading syms from /lib64/ld-2.12.so
+--25311--   Considering /usr/lib/debug/.build-id/04/202a4a8be624d2193e812a25589e2dd02d5b5c.debug ..
+--25311--   .. build-id is valid
+--25311-- Scheduler: using generic scheduler lock implementation.
+--25311-- Reading suppressions file: /usr/lib64/valgrind/default.supp
+==25311== embedded gdbserver: reading from /tmp/vgdb-pipe-from-vgdb-to-25311-by-xiao81-on-ecegrid-thin4.ecn.purdue.edu
+==25311== embedded gdbserver: writing to   /tmp/vgdb-pipe-to-vgdb-from-25311-by-xiao81-on-ecegrid-thin4.ecn.purdue.edu
+==25311== embedded gdbserver: shared mem   /tmp/vgdb-pipe-shared-mem-vgdb-25311-by-xiao81-on-ecegrid-thin4.ecn.purdue.edu
+==25311== 
+==25311== TO CONTROL THIS PROCESS USING vgdb (which you probably
+==25311== don't want to do, unless you know exactly what you're doing,
+==25311== or are doing some strange experiment):
+==25311==   /usr/lib64/valgrind/../../bin/vgdb --pid=25311 ...command...
+==25311== 
+==25311== TO DEBUG THIS PROCESS USING GDB: start GDB like this
+==25311==   /path/to/gdb ./unhuff
+==25311== and then give GDB the following command
+==25311==   target remote | /usr/lib64/valgrind/../../bin/vgdb --pid=25311
+==25311== --pid is optional if only one valgrind process is running
+==25311== 
+--25311-- REDIR: 0x3539a17c30 (strlen) redirected to 0x38049551 (vgPlain_amd64_linux_REDIR_FOR_strlen)
+--25311-- Reading syms from /usr/lib64/valgrind/vgpreload_core-amd64-linux.so
+--25311-- Reading syms from /usr/lib64/valgrind/vgpreload_memcheck-amd64-linux.so
+--25311-- REDIR: 0x3539a17a40 (index) redirected to 0x4a07c30 (index)
+--25311-- REDIR: 0x3539a17ac0 (strcmp) redirected to 0x4a08570 (strcmp)
+--25311-- Reading syms from /lib64/libc-2.12.so
+--25311--   Considering /usr/lib/debug/.build-id/a6/d15926e61580e250ed91f84ff7517f3970cd83.debug ..
+--25311--   .. build-id is valid
+--25311-- REDIR: 0x3539e84d00 (strcasecmp) redirected to 0x480155c (_vgnU_ifunc_wrapper)
+--25311-- REDIR: 0x3539e86fc0 (strncasecmp) redirected to 0x480155c (_vgnU_ifunc_wrapper)
+--25311-- REDIR: 0x3539e82c70 (__GI_strrchr) redirected to 0x4a07ab0 (__GI_strrchr)
+--25311-- REDIR: 0x3539e7aac0 (malloc) redirected to 0x4a069ac (malloc)
+--25311-- REDIR: 0x3539e81150 (strlen) redirected to 0x480155c (_vgnU_ifunc_wrapper)
+--25311-- REDIR: 0x3539f336b0 (__strlen_sse42) redirected to 0x4a07f90 (strlen)
+--25311-- REDIR: 0x3539e8ab20 (strchrnul) redirected to 0x4a09fb0 (strchrnul)
+--25311-- REDIR: 0x3539e7b920 (free) redirected to 0x4a063a9 (free)
+==25311== Invalid write of size 1
+==25311==    at 0x3539E69617: vsprintf (iovsprintf.c:44)
+==25311==    by 0x3539E4F2B7: sprintf (sprintf.c:34)
+==25311==    by 0x400CA0: main (in /home/shay/b/xiao81/ECE368/ece368-proj2/unhuff)
+==25311==  Address 0x4c3d2d4 is 0 bytes after a block of size 20 alloc'd
+==25311==    at 0x4A06A2E: malloc (vg_replace_malloc.c:270)
+==25311==    by 0x400C85: main (in /home/shay/b/xiao81/ECE368/ece368-proj2/unhuff)
+==25311== 
+==25311== Syscall param open(filename) points to unaddressable byte(s)
+==25311==    at 0x3539EDB310: __open_nocancel (syscall-template.S:82)
+==25311==    by 0x3539E72AEE: _IO_file_fopen@@GLIBC_2.2.5 (fileops.c:231)
+==25311==    by 0x3539E66F25: __fopen_internal (iofopen.c:93)
+==25311==    by 0x400CAD: main (in /home/shay/b/xiao81/ECE368/ece368-proj2/unhuff)
+==25311==  Address 0x4c3d2d4 is 0 bytes after a block of size 20 alloc'd
+==25311==    at 0x4A06A2E: malloc (vg_replace_malloc.c:270)
+==25311==    by 0x400C85: main (in /home/shay/b/xiao81/ECE368/ece368-proj2/unhuff)
+==25311== 
+--25311-- REDIR: 0x3539e896a0 (memcpy) redirected to 0x4a08b60 (memcpy)
+==25311== 
+==25311== HEAP SUMMARY:
+==25311==     in use at exit: 2,352 bytes in 98 blocks
+==25311==   total heap usage: 102 allocs, 4 frees, 3,532 bytes allocated
+==25311== 
+==25311== Searching for pointers to 98 not-freed blocks
+==25311== Checked 64,536 bytes
+==25311== 
+==25311== 888 (24 direct, 864 indirect) bytes in 1 blocks are definitely lost in loss record 15 of 16
+==25311==    at 0x4A06A2E: malloc (vg_replace_malloc.c:270)
+==25311==    by 0x400B12: read_tree (in /home/shay/b/xiao81/ECE368/ece368-proj2/unhuff)
+==25311==    by 0x400D10: main (in /home/shay/b/xiao81/ECE368/ece368-proj2/unhuff)
+==25311== 
+==25311== 1,464 (24 direct, 1,440 indirect) bytes in 1 blocks are definitely lost in loss record 16 of 16
+==25311==    at 0x4A06A2E: malloc (vg_replace_malloc.c:270)
+==25311==    by 0x400AEA: read_tree (in /home/shay/b/xiao81/ECE368/ece368-proj2/unhuff)
+==25311==    by 0x400D10: main (in /home/shay/b/xiao81/ECE368/ece368-proj2/unhuff)
+==25311== 
+==25311== LEAK SUMMARY:
+==25311==    definitely lost: 48 bytes in 2 blocks
+==25311==    indirectly lost: 2,304 bytes in 96 blocks
+==25311==      possibly lost: 0 bytes in 0 blocks
+==25311==    still reachable: 0 bytes in 0 blocks
+==25311==         suppressed: 0 bytes in 0 blocks
+==25311== 
+==25311== ERROR SUMMARY: 4 errors from 4 contexts (suppressed: 6 from 6)
+==25311== 
+==25311== 1 errors in context 1 of 4:
+==25311== Syscall param open(filename) points to unaddressable byte(s)
+==25311==    at 0x3539EDB310: __open_nocancel (syscall-template.S:82)
+==25311==    by 0x3539E72AEE: _IO_file_fopen@@GLIBC_2.2.5 (fileops.c:231)
+==25311==    by 0x3539E66F25: __fopen_internal (iofopen.c:93)
+==25311==    by 0x400CAD: main (in /home/shay/b/xiao81/ECE368/ece368-proj2/unhuff)
+==25311==  Address 0x4c3d2d4 is 0 bytes after a block of size 20 alloc'd
+==25311==    at 0x4A06A2E: malloc (vg_replace_malloc.c:270)
+==25311==    by 0x400C85: main (in /home/shay/b/xiao81/ECE368/ece368-proj2/unhuff)
+==25311== 
+==25311== 
+==25311== 1 errors in context 2 of 4:
+==25311== Invalid write of size 1
+==25311==    at 0x3539E69617: vsprintf (iovsprintf.c:44)
+==25311==    by 0x3539E4F2B7: sprintf (sprintf.c:34)
+==25311==    by 0x400CA0: main (in /home/shay/b/xiao81/ECE368/ece368-proj2/unhuff)
+==25311==  Address 0x4c3d2d4 is 0 bytes after a block of size 20 alloc'd
+==25311==    at 0x4A06A2E: malloc (vg_replace_malloc.c:270)
+==25311==    by 0x400C85: main (in /home/shay/b/xiao81/ECE368/ece368-proj2/unhuff)
+==25311== 
+--25311-- 
+--25311-- used_suppression:      4 U1004-ARM-_dl_relocate_object
+--25311-- used_suppression:      2 glibc-2.5.x-on-SUSE-10.2-(PPC)-2a
+==25311== 
+==25311== ERROR SUMMARY: 4 errors from 4 contexts (suppressed: 6 from 6)

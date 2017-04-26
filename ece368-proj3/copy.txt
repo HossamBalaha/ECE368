@@ -1,0 +1,24 @@
+Vnode *head;   
+AdjNode *curr;
+AdjNode *prvnode;
+for(i=0;i<graph->V;i++){
+     head=graph->array[i].head;
+    if(head->next!=NULL){
+      curr=head->next;
+      while(curr!=NULL){
+	prvnode=curr;
+	curr=curr->next;
+	free(prvnode);
+      }
+    }
+    free(graph->array[i].head);
+  }
+  free(graph->array);
+  free(graph);
+
+for(i=0;i<mhp->size;i++){
+     free(mhp->array[i]);
+   }
+   free(mhp->array);
+   free(mhp->pos);
+   free(mhp);
